@@ -211,7 +211,6 @@ export class AIClient {
     if (!chat) throw new Error("Chat not found in AiClient.sendMessage()");
 
     const messages = await this.memory.chatHistory.getMessages();
-    console.log(messages);
     const responseFormated = this.splitMessage(result.response as string);
     const newHistory: ChatMessage[] = !chat?.history
       ? []
@@ -233,8 +232,6 @@ export class AIClient {
     );
 
     database.updateHistory(this.chatId, JSON.stringify(newHistory));
-
-    console.log(result.response.length);
 
     return responseFormated;
   }
@@ -281,15 +278,6 @@ export class GenerateContentAI {
 
     const response = await chain.invoke({ input });
 
-    // if (response.length > 500) {
-    // 	console.log(`Passou de 500 caracteres: "${response.length}"`);
-    // 	response = await chain.invoke({
-    // 		input: `[Message do Sistema] Essa mensagem é um mensagem do sistema, não cite ela em sua resposta e nem deixe o Human saber da existência dela.\nA resposta que você criou, tem um tamanho de ${response.length} de caracteres e passou do limite do tamanho de 500 caracteres que obrigatoriamente preciso, por favor refaça essa resposta SEM PASSAR DE 500 CARACTERES DE TAMANHO \nResposta: ${input}`,
-    // 		chat_history: "",
-    // 	});
-    // }
-
-    console.log(response.length);
     return response;
   }
 }
