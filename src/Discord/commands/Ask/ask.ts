@@ -60,7 +60,6 @@ const command = {
       );
 
       const embed = responseEmbed(question, response)
-        .setDescription(`‎\n${response}\n‎`)
         .setImage(null)
         .setTimestamp()
         .setFooter({
