@@ -147,7 +147,7 @@ function middleware(
     command: SlashCommandObject
   ) => void
 ) {
-  if (interaction.channelId === "1253331359972331540") {
+  if (interaction.channelId === "1261040309467611288") {
     return next(interaction, command);
   }
 
