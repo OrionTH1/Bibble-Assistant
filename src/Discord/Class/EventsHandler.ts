@@ -104,12 +104,9 @@ export class EventsHandler {
       if (message.channel.isThread() && message.channel.invitable === false) {
         const chat = chatHandler.getChat(message.channel.id);
 
-        console.log("test");
         if (!chat) return;
 
-        console.log("test");
         if (message.content === "!stop") {
-          console.log("test");
           if (!(message.author.id === "253195593130835968")) return;
           chat.stopChat();
 
