@@ -92,7 +92,7 @@ class Chat {
   public authorId: string;
   public threadChat: ThreadChannel;
   public timeoutToAutoDeleteThread: NodeJS.Timeout;
-  private isUserAlreadyAsked = false;
+  private isChatBlocked = false;
   private AiChat: AIClient;
 
   constructor(
@@ -137,7 +137,7 @@ class Chat {
   }
 
   public async createMessage(message: Message) {
-    if (this.isUserAlreadyAsked) return;
+    if (this.isChatBlocked) return;
     const messageResponse = await message.reply({
       embeds: [
         responseEmbed(
@@ -149,13 +149,15 @@ class Chat {
       ],
     });
 
-    this.isUserAlreadyAsked = true;
+    this.isChatBlocked = true;
     try {
       const response = await this.AiChat.sendMessage(
         message.content,
         message.id,
         messageResponse.id
       );
+
+      if (!messageResponse.channel) return;
 
       if (response.length === 1) {
         const embed = responseEmbed(null, response[0]);
@@ -180,16 +182,32 @@ class Chat {
         "Desculpe, mas algum problema ocorreu. :pensive: \nChame um administrador para ver o que pode ser feito :smiling_face_with_3_hearts:\n\n Deus te abençoe! Jesus te ama 🙏 ❤"
       );
 
-      messageResponse.edit({ content: "", embeds: [embedResponse] });
+      if (messageResponse.channel) {
+        messageResponse.edit({ content: "", embeds: [embedResponse] });
+      }
     }
 
-    this.isUserAlreadyAsked = false;
+    this.isChatBlocked = false;
   }
 
   public delete() {
     clearTimeout(this.timeoutToAutoDeleteThread);
     this.threadChat.delete("User deleted Chat AI");
     database.deleteChat(this.id);
+  }
+
+  public stopChat() {
+    clearTimeout(this.timeoutToAutoDeleteThread);
+    this.isChatBlocked = true;
+  }
+
+  public startChat() {
+    this.timeoutToAutoDeleteThread = setTimeout(() => {
+      this.threadChat.delete("Auto deleted Chat AI after a hour");
+      database.deleteChat(this.id);
+    }, 24 * (60 * (60 * 1000)));
+
+    this.isChatBlocked = false;
   }
 
   private createAutoDelete() {
