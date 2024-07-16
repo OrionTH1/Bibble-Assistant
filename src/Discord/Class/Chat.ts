@@ -196,6 +196,6 @@ class Chat {
     return setTimeout(() => {
       this.threadChat.delete("Auto deleted Chat AI after a hour");
       database.deleteChat(this.id);
-    }, 1 * (60 * (60 * 1000)));
+    }, 24 * (60 * (60 * 1000)));
   }
 }
