@@ -1,33 +1,33 @@
 {
-	"name": "bibble-assistant",
-	"version": "1.0.0",
-	"main": "dist/Discord/index.js",
-	"type": "module",
-	"scripts": {
-		"dev": "npx ts-node src/Discord/index.ts",
-		"build": "npx tsc",
-		"start": "npx tsc && node .",
-		"deploy-slash": "ts-node src/Discord/deploy-commands.ts"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"description": "",
-	"dependencies": {
-		"@google/generative-ai": "^0.14.0",
-		"@langchain/core": "^0.2.10",
-		"@langchain/google-webauth": "^0.0.19",
-		"@prisma/client": "^5.16.1",
-		"discord.js": "^14.15.3",
-		"dotenv": "^16.4.5",
-		"langchain": "^0.2.8",
-		"ts-node": "^10.9.2"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.2",
-		"@types/node": "^20.14.6",
-		"npm": "^10.8.1",
-		"prisma": "^5.16.1",
-		"typescript": "^5.5.2"
-	}
+  "name": "bibble-assistant",
+  "version": "1.0.0",
+  "main": "dist/Discord/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx ts-node src/Discord/index.ts",
+    "build": "npx tsc",
+    "start": "npx tsc && node .",
+    "deploy-slash": "npx tsc && node ./dist/Discord/utils/deploy-commands.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.14.0",
+    "@langchain/core": "^0.2.10",
+    "@langchain/google-webauth": "^0.0.19",
+    "@prisma/client": "^5.16.1",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "langchain": "^0.2.8",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.2",
+    "@types/node": "^20.14.6",
+    "npm": "^10.8.1",
+    "prisma": "^5.16.1",
+    "typescript": "^5.5.2"
+  }
 }
