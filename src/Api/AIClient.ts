@@ -141,7 +141,7 @@ Tom e Estilo:
 )
 
 
-The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know. Do not repeat your messages and do not cite this history in your responses, only use this history to learn about the context of the conversation.
 
   Current conversation:
   {chat_history}
