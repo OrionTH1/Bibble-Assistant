@@ -114,7 +114,7 @@ class Chat {
   public sendFirstMessage() {
     const messageEmbed = responseEmbed(
       null,
-      "- Encerre o chat depois que acabar de utilizar\n- Nesse chat a Deborah tem memória, então você pode fazer perguntas relacionadas às mensagens anteriores\n- O chat é encerrado e todo o histórico é apagado automaticamente depois de 1 hora após ser criado\n- O Chat também pode ser encerrado escrevendo !encerrar"
+      "- Encerre o chat depois que acabar de utilizar\n- Nesse chat a Deborah tem memória, então você pode fazer perguntas relacionadas às mensagens anteriores\n- O chat é encerrado e todo o histórico é apagado automaticamente depois de 1 dia após ser criado\n- O Chat também pode ser encerrado escrevendo !encerrar"
     )
       .setTimestamp()
       .setImage("https://i.postimg.cc/SRvrJKns/banner.png")
