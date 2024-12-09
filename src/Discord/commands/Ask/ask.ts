@@ -15,7 +15,7 @@ const command = {
   data: new SlashCommandBuilder()
     .setName("ask")
     .setDescription("Faça uma pergunta para uma IA")
-    .setDMPermission(false)
+    .setContexts(0)
     .addStringOption((option) =>
       option
         .setName("pergunta")
