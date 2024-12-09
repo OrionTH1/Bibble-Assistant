@@ -1,20 +1,15 @@
-import type { BaseChatMessageHistory } from "@langchain/core/chat_history.js";
-import { AIMessage, HumanMessage } from "@langchain/core/messages";
 import {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
   type Client,
-  type DiscordAPIError,
   type Message,
   type ThreadChannel,
 } from "discord.js";
-import { ChatMessageHistory } from "langchain/memory";
 import { AIClient } from "../../Api/AIClient.js";
 import { database } from "../../Database/DatabaseClient.js";
 import { EmbedWithPagination } from "../components/pagination/index.js";
 import { responseEmbed } from "../components/response/index.js";
-import type { ChatMessage } from "../types/types.js";
 
 export class ChatHandler {
   private chats: Chat[] = [];
@@ -117,7 +112,7 @@ class Chat {
       "- Encerre o chat depois que acabar de utilizar\n- Nesse chat a Deborah tem memória, então você pode fazer perguntas relacionadas às mensagens anteriores\n- O chat é encerrado e todo o histórico é apagado automaticamente depois de 1 dia após ser criado\n- O Chat também pode ser encerrado escrevendo !encerrar"
     )
       .setTimestamp()
-      .setImage("https://i.postimg.cc/SRvrJKns/banner.png")
+      .setImage("https://i.ibb.co/DYymVxT/banner.webp ")
       .setFooter({
         text: "As respostas são geradas por IA e podem conter erros!",
       });
