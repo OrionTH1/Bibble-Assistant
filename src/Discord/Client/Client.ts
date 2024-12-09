@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits, Message, Partials } from "discord.js";
-import { EventsHandler } from "./EventsHandler.js";
+import { EventsHandler } from "./events/EventsHandler.js";
 import { SlashCommand } from "./SlashCommands.js";
 
 export class DiscordClient extends Client {
@@ -10,10 +10,11 @@ export class DiscordClient extends Client {
     super({
       intents: [
         GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
       ],
-      partials: [Partials.Message, Partials.Channel],
+      partials: [Partials.Message, Partials.Channel, Partials.GuildMember],
     });
   }
 
