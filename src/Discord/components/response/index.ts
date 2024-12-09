@@ -4,7 +4,7 @@ export const responseEmbed = (title: string | null, description: string) => {
   const embed = new EmbedBuilder()
     .setDescription(description)
     .setColor("#A1CEEA")
-    .setImage("https://i.postimg.cc/SRvrJKns/banner.png");
+    .setImage("https://i.ibb.co/DYymVxT/banner.webp");
 
   if (title) {
     if (title.length > 256) {
