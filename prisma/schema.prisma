@@ -16,3 +16,9 @@ model Chat {
   history String
   
 }
+
+model GuildConfigs {
+  id String @unique
+  allowedChannels String
+  allowedRoles String
+}
