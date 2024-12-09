@@ -30,6 +30,34 @@ class Database {
   public async updateHistory(chatId: string, history: string) {
     await prisma.chat.update({ where: { id: chatId }, data: { history } });
   }
+
+  // Guild Config
+  async updateGuildConfig(
+    guildId: string,
+    allowedChannels: string,
+    allowedRoles: string
+  ) {
+    return await prisma.guildConfigs.update({
+      where: { id: guildId },
+      data: { allowedChannels, allowedRoles },
+    });
+  }
+
+  async getGuildConfig(guildId: string) {
+    return await prisma.guildConfigs.findFirst({
+      where: { id: guildId },
+    });
+  }
+
+  async createGuildConfig(
+    guildId: string,
+    allowedChannels: string,
+    allowedRoles: string
+  ) {
+    return await prisma.guildConfigs.create({
+      data: { id: guildId, allowedChannels, allowedRoles },
+    });
+  }
 }
 
 export const database = new Database();
