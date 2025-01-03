@@ -5,7 +5,7 @@ import {
   PermissionsBitField,
 } from "discord.js";
 import type { SlashCommandObject } from "../../types/types";
-import { database } from "../../../Database/DatabaseClient";
+import { database } from "../../../Database/DatabaseClient.js";
 
 export async function verifyIfUserHasPermission(
   interaction: ChatInputCommandInteraction,

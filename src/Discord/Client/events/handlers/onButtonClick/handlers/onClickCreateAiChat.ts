@@ -4,7 +4,7 @@ import {
   ThreadAutoArchiveDuration,
   type ButtonInteraction,
 } from "discord.js";
-import { chatHandler } from "../../../../../Class/Chat";
+import { chatHandler } from "../../../../../Class/Chat.js";
 
 export async function onClickCreateAiChat(interaction: ButtonInteraction) {
   if (
