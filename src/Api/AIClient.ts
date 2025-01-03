@@ -13,7 +13,7 @@ dotenv.config();
 
 const model = new ChatGoogle({
   apiKey: process.env.API_KEY,
-  modelName: "gemini-1.5-flash",
+  modelName: "gemini-1.5-flash-002",
   // maxOutputTokens: 200,
   safetySettings: [
     {
