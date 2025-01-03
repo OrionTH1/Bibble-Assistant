@@ -1,20 +1,15 @@
-import type { BaseChatMessageHistory } from "@langchain/core/chat_history.js";
-import { AIMessage, HumanMessage } from "@langchain/core/messages";
 import {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
   type Client,
-  type DiscordAPIError,
   type Message,
   type ThreadChannel,
 } from "discord.js";
-import { ChatMessageHistory } from "langchain/memory";
 import { AIClient } from "../../Api/AIClient.js";
 import { database } from "../../Database/DatabaseClient.js";
 import { EmbedWithPagination } from "../components/pagination/index.js";
 import { responseEmbed } from "../components/response/index.js";
-import type { ChatMessage } from "../types/types.js";
 
 export class ChatHandler {
   private chats: Chat[] = [];
@@ -114,10 +109,10 @@ class Chat {
   public sendFirstMessage() {
     const messageEmbed = responseEmbed(
       null,
-      "- Encerre o chat depois que acabar de utilizar\n- Nesse chat a Deborah tem memória, então você pode fazer perguntas relacionadas às mensagens anteriores\n- O chat é encerrado e todo o histórico é apagado automaticamente depois de 1 dia após ser criado\n- O Chat também pode ser encerrado escrevendo !encerrar"
+      "Oi Oi! 🥰 Meu nome é Deborah e sou uma assistente pronta para te ajudar com perguntas sobre a fé cristã! Tenho muito prazer em te conhecer! ✨\nEnvie sua pergunta ou mensagem para que nossa conversa comece ❤"
     )
       .setTimestamp()
-      .setImage("https://i.postimg.cc/SRvrJKns/banner.png")
+      .setImage("https://i.ibb.co/DYymVxT/banner.webp ")
       .setFooter({
         text: "As respostas são geradas por IA e podem conter erros!",
       });
@@ -179,7 +174,7 @@ class Chat {
       );
       const embedResponse = responseEmbed(
         null,
-        "Desculpe, mas algum problema ocorreu. :pensive: \nChame um administrador para ver o que pode ser feito :smiling_face_with_3_hearts:\n\n Deus te abençoe! Jesus te ama 🙏 ❤"
+        "Desculpe, mas algum problema ocorreu. :pensive: \nTente novamente ou chame um administrador para ver o que pode ser feito :smiling_face_with_3_hearts:\n\n Deus te abençoe! Jesus te ama 🙏 ❤"
       );
 
       if (messageResponse.channel) {
@@ -192,7 +187,8 @@ class Chat {
 
   public delete() {
     clearTimeout(this.timeoutToAutoDeleteThread);
-    this.threadChat.delete("User deleted Chat AI");
+
+    this.deleteThreadChat("User deleted Chat AI");
     database.deleteChat(this.id);
   }
 
@@ -203,16 +199,31 @@ class Chat {
 
   public startChat() {
     this.timeoutToAutoDeleteThread = setTimeout(() => {
-      this.threadChat.delete("Auto deleted Chat AI after a hour");
+      this.deleteThreadChat("Auto deleted Chat AI after a hour");
+
       database.deleteChat(this.id);
     }, 24 * (60 * (60 * 1000)));
 
     this.isChatBlocked = false;
   }
 
+  private async deleteThreadChat(reason: string) {
+    try {
+      const guildChannels = this.threadChat.guild.channels;
+
+      const threadChannelExist = await guildChannels.fetch(this.id);
+      if (threadChannelExist) {
+        this.threadChat.delete(reason);
+      }
+    } catch (err) {
+      console.warn("The Thread chat already has been deleted");
+    }
+  }
+
   private createAutoDelete() {
-    return setTimeout(() => {
-      this.threadChat.delete("Auto deleted Chat AI after a hour");
+    return setTimeout(async () => {
+      this.deleteThreadChat("Auto deleted Chat AI after a hour");
+
       database.deleteChat(this.id);
     }, 24 * (60 * (60 * 1000)));
   }
