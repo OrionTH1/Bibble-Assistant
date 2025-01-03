@@ -59,7 +59,10 @@ const command = {
         `[➕] New /ask message created at ${interaction.channel?.id} channel, with ${response.length} characters`
       );
 
-      const embed = responseEmbed(question, response)
+      const embed = responseEmbed(
+        question,
+        `${response}\nAs respostas do comando /ask são limitadas a 500 caracteres, para respostas mais completas crie um IA Chat com a Deborah, caso não saiba como, chame um administrador😊`
+      )
         .setImage(null)
         .setTimestamp()
         .setFooter({
