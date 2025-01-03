@@ -187,7 +187,8 @@ class Chat {
 
   public delete() {
     clearTimeout(this.timeoutToAutoDeleteThread);
-    this.threadChat.delete("User deleted Chat AI");
+
+    this.deleteThreadChat("User deleted Chat AI");
     database.deleteChat(this.id);
   }
 
@@ -198,16 +199,31 @@ class Chat {
 
   public startChat() {
     this.timeoutToAutoDeleteThread = setTimeout(() => {
-      this.threadChat.delete("Auto deleted Chat AI after a hour");
+      this.deleteThreadChat("Auto deleted Chat AI after a hour");
+
       database.deleteChat(this.id);
     }, 24 * (60 * (60 * 1000)));
 
     this.isChatBlocked = false;
   }
 
+  private async deleteThreadChat(reason: string) {
+    try {
+      const guildChannels = this.threadChat.guild.channels;
+
+      const threadChannelExist = await guildChannels.fetch(this.id);
+      if (threadChannelExist) {
+        this.threadChat.delete(reason);
+      }
+    } catch (err) {
+      console.warn("The Thread chat already has been deleted");
+    }
+  }
+
   private createAutoDelete() {
-    return setTimeout(() => {
-      this.threadChat.delete("Auto deleted Chat AI after a hour");
+    return setTimeout(async () => {
+      this.deleteThreadChat("Auto deleted Chat AI after a hour");
+
       database.deleteChat(this.id);
     }, 24 * (60 * (60 * 1000)));
   }
