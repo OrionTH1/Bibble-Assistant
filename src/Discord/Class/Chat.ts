@@ -109,7 +109,7 @@ class Chat {
   public sendFirstMessage() {
     const messageEmbed = responseEmbed(
       null,
-      "- Encerre o chat depois que acabar de utilizar\n- Nesse chat a Deborah tem memória, então você pode fazer perguntas relacionadas às mensagens anteriores\n- O chat é encerrado e todo o histórico é apagado automaticamente depois de 1 dia após ser criado\n- O Chat também pode ser encerrado escrevendo !encerrar"
+      "Oi Oi! 🥰 Meu nome é Deborah e sou uma assistente pronta para te ajudar com perguntas sobre a fé cristã! Tenho muito prazer em te conhecer! ✨\nEnvie sua pergunta ou mensagem para que nossa conversa comece ❤"
     )
       .setTimestamp()
       .setImage("https://i.ibb.co/DYymVxT/banner.webp ")
@@ -174,7 +174,7 @@ class Chat {
       );
       const embedResponse = responseEmbed(
         null,
-        "Desculpe, mas algum problema ocorreu. :pensive: \nChame um administrador para ver o que pode ser feito :smiling_face_with_3_hearts:\n\n Deus te abençoe! Jesus te ama 🙏 ❤"
+        "Desculpe, mas algum problema ocorreu. :pensive: \nTente novamente ou chame um administrador para ver o que pode ser feito :smiling_face_with_3_hearts:\n\n Deus te abençoe! Jesus te ama 🙏 ❤"
       );
 
       if (messageResponse.channel) {
