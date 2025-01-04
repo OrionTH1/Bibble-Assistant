@@ -8,6 +8,7 @@ import {
   type ChatInputCommandInteraction,
   ComponentType,
   type InteractionCollector,
+  MessageFlags,
   PermissionFlagsBits,
   PermissionsBitField,
   type RoleSelectMenuInteraction,
@@ -29,7 +30,7 @@ const command = {
     if (!permission) {
       return interaction.reply({
         content: "Você não tem permissão para usar este comando",
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
     const response = responseEmbed(

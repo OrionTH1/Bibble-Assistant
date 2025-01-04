@@ -1,5 +1,6 @@
 import {
   ChannelType,
+  MessageFlags,
   NewsChannel,
   ThreadAutoArchiveDuration,
   type ButtonInteraction,
@@ -32,6 +33,6 @@ export async function onClickCreateAiChat(interaction: ButtonInteraction) {
 
   await interaction.reply({
     content: `Chat iniciado!\n<#${chat.id}>`,
-    ephemeral: true,
+    flags: MessageFlags.Ephemeral,
   });
 }

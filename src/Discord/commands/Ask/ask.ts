@@ -1,5 +1,6 @@
 import {
   type ChatInputCommandInteraction,
+  MessageFlags,
   SlashCommandBuilder,
 } from "discord.js";
 import { GenerateContentAI } from "../../../Api/AIClient.js";
@@ -35,7 +36,7 @@ const command = {
         content: `Você deve aguardar ${
           30 - Math.round((Date.now() - timeout.timeout) / 1000)
         } segundos para usar esse comando de novo :blush:`,
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
 

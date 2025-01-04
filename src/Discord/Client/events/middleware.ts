@@ -2,6 +2,7 @@ import {
   ChannelType,
   type ChatInputCommandInteraction,
   GuildMemberRoleManager,
+  MessageFlags,
   PermissionFlagsBits,
   PermissionsBitField,
 } from "discord.js";
@@ -46,7 +47,7 @@ export async function verifyIfUserHasPermission(
       if (!pass) {
         return interaction.reply({
           content: "Você não tem permissão para usar este comando",
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       }
     }
@@ -70,7 +71,7 @@ export async function verifyIfUserHasPermission(
 
       return interaction.reply({
         content: "Esse comando não é permitido neste canal",
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
     }
   }
