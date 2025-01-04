@@ -202,7 +202,7 @@ class Chat {
       } catch (err) {
         attempt++;
         console.error(
-          `Ocorreu um erro em um Chat IA, nome: ${this.threadChat.name}, id: ${this.id} Error:\n
+          `Ocorreu um erro em um Chat IA, nome: ${this.threadChat.name}, id: ${this.id} Tentando novamente!!!\nError:\n
 						${err}`
         );
 
