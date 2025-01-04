@@ -145,33 +145,17 @@ class Chat {
     });
 
     this.isChatBlocked = true;
-    try {
-      const response = await this.AiChat.sendMessage(
-        message.content,
-        message.id,
-        messageResponse.id
-      );
 
-      if (!messageResponse.channel) return;
+    const response = await this.getAiResponseOrRetry(message, messageResponse);
 
-      if (response.length === 1) {
-        const embed = responseEmbed(null, response[0]);
-
-        messageResponse.edit({ embeds: [embed] });
-      } else if (response.length > 1) {
-        const embedWithPagination = new EmbedWithPagination(response, 0);
-
-        messageResponse.edit({ ...embedWithPagination.embed });
-      }
-
-      console.log(
-        `[➕] New /chat message created at ${this.id} Thread, with ${response.length} characters`
-      );
-    } catch (err) {
+    if (!response || !messageResponse.channel) {
       console.error(
-        `Ocorreu um erro em um Chat IA, nome: ${this.threadChat.name}, id: ${this.id} Error:\n
-						${err}`
+        `Ocorreu um erro em um Chat IA, nome: ${this.threadChat.name}, id: ${
+          this.id
+        } Error:\n
+						${"response undefined"}`
       );
+
       const embedResponse = responseEmbed(
         null,
         "Desculpe, mas algum problema ocorreu. :pensive: \nTente novamente ou chame um administrador para ver o que pode ser feito :smiling_face_with_3_hearts:\n\n Deus te abençoe! Jesus te ama 🙏 ❤"
@@ -180,9 +164,54 @@ class Chat {
       if (messageResponse.channel) {
         messageResponse.edit({ content: "", embeds: [embedResponse] });
       }
+
+      this.isChatBlocked = false;
+      return;
+    }
+
+    if (response.length === 1) {
+      const embed = responseEmbed(null, response[0]);
+
+      messageResponse.edit({ embeds: [embed] });
+    } else if (response.length > 1) {
+      const embedWithPagination = new EmbedWithPagination(response, 0);
+
+      messageResponse.edit({ ...embedWithPagination.embed });
     }
 
     this.isChatBlocked = false;
+  }
+
+  private async getAiResponseOrRetry(prompt: Message, discordMessage: Message) {
+    const maxRetries = 5;
+    let attempt = 0;
+    const delay = 1 * 1000;
+
+    while (attempt < maxRetries) {
+      try {
+        const response = await this.AiChat.sendMessage(
+          prompt.content,
+          prompt.id,
+          discordMessage.id
+        );
+
+        console.log(
+          `[➕] New /chat message created at ${this.id} Thread, with ${response.length} characters`
+        );
+        return response;
+      } catch (err) {
+        attempt++;
+        console.error(
+          `Ocorreu um erro em um Chat IA, nome: ${this.threadChat.name}, id: ${this.id} Error:\n
+						${err}`
+        );
+
+        // Delay to retry
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    }
+
+    return null;
   }
 
   public delete() {

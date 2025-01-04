@@ -17,17 +17,16 @@
     "@google/generative-ai": "^0.21.0",
     "@langchain/core": "^0.3.24",
     "@langchain/google-webauth": "^0.1.4",
-    "@prisma/client": "5.22.0",
-    "discord.js": "14.16.3",
-    "dotenv": "16.4.5",
+    "@prisma/client": "^6.1.0",
+    "discord.js": "14.17.2",
     "langchain": "^0.3.7",
     "ts-node": "10.9.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.2",
-    "@types/node": "20.14.6",
-    "npm": "10.8.1",
-    "prisma": "5.22.0",
-    "typescript": "5.5.2"
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.5",
+    "dotenv": "^16.4.7",
+    "prisma": "^6.1.0",
+    "typescript": "^5.7.2"
   }
 }
