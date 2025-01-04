@@ -89,10 +89,7 @@ export class AIClient {
     questionMessageId: string,
     responseMessageId: string
   ) {
-    console.log("test");
-    console.log(this.memory.chatHistory.getMessages());
     const result = await this.chat.invoke({ input });
-    console.log(result);
 
     const chat = await database.getChat(this.chatId);
     if (!chat) throw new Error("Chat not found in AiClient.sendMessage()");
