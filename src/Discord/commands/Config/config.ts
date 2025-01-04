@@ -26,7 +26,6 @@ const command = {
     .setContexts(0),
   execute: async (interaction: ChatInputCommandInteraction) => {
     const permission = verifyIfMemberHasAdmPermission(interaction);
-    console.log(permission);
     if (!permission) {
       return interaction.reply({
         content: "Você não tem permissão para usar este comando",

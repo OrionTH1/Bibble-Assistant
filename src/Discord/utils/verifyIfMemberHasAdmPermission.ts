@@ -11,10 +11,6 @@ export function verifyIfMemberHasAdmPermission(interaction: Interaction) {
     interaction.member.permissions.has(PermissionFlagsBits.Administrator)
   ) {
     return true;
-    // return interaction.reply({
-    //   content: "Você não tem permissão para usar este comando",
-    //   ephemeral: true,
-    // });
   }
 
   return false;
