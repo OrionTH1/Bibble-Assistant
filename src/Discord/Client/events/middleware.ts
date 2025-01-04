@@ -2,6 +2,7 @@ import {
   ChannelType,
   type ChatInputCommandInteraction,
   GuildMemberRoleManager,
+  PermissionFlagsBits,
   PermissionsBitField,
 } from "discord.js";
 import type { SlashCommandObject } from "../../types/types";
@@ -27,8 +28,8 @@ export async function verifyIfUserHasPermission(
   const guildConfig = await database.getGuildConfig(interaction.guild.id);
 
   if (
-    guildConfig
-    // !interaction.member.permissions.has(PermissionFlagsBits.Administrator)
+    guildConfig &&
+    !interaction.member.permissions.has(PermissionFlagsBits.Administrator)
   ) {
     const allowedRoles = JSON.parse(guildConfig.allowedRoles) as string[];
     const allowedChannels = JSON.parse(guildConfig.allowedChannels) as string[];
