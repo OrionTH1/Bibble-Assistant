@@ -164,7 +164,7 @@ export class ConfigAllowedChannelsComponent {
     interaction.message.edit({
       embeds: [
         this.embed.setDescription(
-          `**Caso nenhum cargo seja selecionado, a Deborah poderá ser usada por qualquer cargos**\n\nCargos permitidos: ${
+          `**Caso nenhum canal seja selecionado, a Deborah poderá ser usada em qualquer canal**\n\nCanais permitidos: ${
             allowedChannels.length > 0 ? `\n${mentionChannels}` : "`Todos`"
           }`
         ),
