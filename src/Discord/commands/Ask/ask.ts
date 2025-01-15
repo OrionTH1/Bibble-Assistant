@@ -62,7 +62,7 @@ const command = {
 
       const embed = responseEmbed(
         question,
-        `${response}\nAs respostas do comando /ask são limitadas a 500 caracteres, para respostas mais completas crie um IA Chat com a Deborah, caso não saiba como, chame um administrador😊`
+        `${response}\nAs respostas do /ask são limitadas a serem respostas pequenas, para respostas mais completas crie um Chat IA`
       )
         .setImage(null)
         .setTimestamp()
