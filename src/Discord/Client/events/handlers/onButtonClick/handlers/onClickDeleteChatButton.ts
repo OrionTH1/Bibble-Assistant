@@ -5,8 +5,8 @@ export function onClickDeleteChatButton(interaction: ButtonInteraction) {
   if (!interaction || !interaction.channel) return;
 
   const chat = chatHandler.getChat(interaction.channel.id);
-  if (chat) {
-    interaction.deferUpdate();
+  if (chat && !chat.isChatBlocked) {
     chat.delete();
+    interaction.deferUpdate();
   }
 }

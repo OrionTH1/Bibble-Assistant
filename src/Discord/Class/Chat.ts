@@ -87,7 +87,7 @@ class Chat {
   public authorId: string;
   public threadChat: ThreadChannel;
   public timeoutToAutoDeleteThread: NodeJS.Timeout;
-  private isChatBlocked = false;
+  public isChatBlocked = false;
   private AiChat: AIClient;
 
   constructor(
