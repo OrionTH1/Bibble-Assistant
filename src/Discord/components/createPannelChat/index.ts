@@ -87,6 +87,7 @@ export class CreatePannelComponent {
       \n- Nesse Chat a Deborah dará respostas mais completas e aprofundadas, para respostas mais simples, use o /ask
       \n- O chat é encerrado e todo o histórico é apagado automaticamente depois de 1 dia após ser criado
       \n- O Chat também pode ser encerrado escrevendo !encerrar
+      \nO Chat IA com a Deborah é visível somente para você e para os administradores.
       `
     );
 
