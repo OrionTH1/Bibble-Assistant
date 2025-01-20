@@ -98,7 +98,12 @@ const command = {
           });
 
           configAllowedButtonCollector.on("collect", (interaction) => {
-            if (interaction.customId === "back-to-home-button") return;
+            if (
+              interaction.customId === "back-to-home-button" ||
+              interaction.customId !== "add-channel-allowed-button"
+            )
+              return;
+
             interaction.deferUpdate();
 
             createPannelComponent.createPannel(interaction);
