@@ -10,6 +10,14 @@
 
 ### [Leia a documentação → **Em breve**]()
 
+---
+
+### 🌍 Select Language | Selecione o Idioma:
+
+**[🇺🇸 English](README.md)** | **[🇧🇷 Português](docs/README-PORTUGUESE.md)**
+
+---
+
 ## 📖 O que é a Deborah?
 
 Deborah é um bot de Discord com inteligência artificial projetado para responder perguntas sobre o cristianismo e a Bíblia, fornecendo insights bíblicos e orientações teológicas. ❤️
