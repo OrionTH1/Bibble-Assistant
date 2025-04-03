@@ -14,7 +14,7 @@
 
 ### 🌍 Select Language | Selecione o Idioma:
 
-**[🇺🇸 English](README)** | **[🇧🇷 Português](READMEPORTUGUESE)**
+**[🇺🇸 English](README.md)** | **[🇧🇷 Português](docs/README-PORTUGUESE.md)**
 
 ---
 
