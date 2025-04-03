@@ -1,85 +1,80 @@
+# Deborah
+
 <p align="center">
   <a href="https://bun.sh"><img src="https://i.postimg.cc/4y8vmTVt/Screenshot-2024-06-24-21-03-43-192-com-google-android-apps-photos-edit.jpg" alt="Logo" height=170></a>
 </p>
-<h1 align="center">Deborah</h1>
 
 <p align="center">
  <img src="https://img.shields.io/github/stars/OrionTH1/Bibble-Assistant" alt="stars">
 </p>
 
+### [Read the documentation → **Coming soon**]()
 
-### [Leia a documentação → **Em breve**]() 
+---
 
-## O que é a Deborah?
+### 🌍 Select Language | Selecione o Idioma:
 
-A Deborah é um bot de discord criado com uma inteligência artificial para tirar dúvidas cristãs ❤️
+**[🇺🇸 English](README)** | **[🇧🇷 Português](READMEPORTUGUESE)**
 
-Convide ela para seu servidor [clicando aqui](https://discord.com/oauth2/authorize?client_id=1253330383475572768&permissions=8&integration_type=0&scope=bot)
+---
 
+## 📖 What is Deborah?
 
-## Como usar?
+Deborah is an AI-powered Discord bot designed to answer questions about Christianity and the Bible, providing biblical insights and theological guidance. ❤️
 
-### Comandos e funcionalidades:
+Invite her to your server [by clicking here](https://discord.com/oauth2/authorize?client_id=1253330383475572768&permissions=8&integration_type=0&scope=bot).
 
- <details>
-   <summary><strong>Ask</strong></summary>
+---
 
-   O comando `/ask` é ideal para perguntas simples e isoladas. Ao usá-lo, a Deborah retornará uma resposta curta e simples.
- 
-   <img src="https://github.com/user-attachments/assets/b48f2fa4-2c07-43b2-a85b-cced708b5fe5" width="850">
-   <img src="https://github.com/user-attachments/assets/3be694f4-d13f-41d8-9225-195126b43b9b" width="850">
-   <br/>
-   <br/>
-   A resposta será enviada diretamente no chat onde o comando foi utilizado, sendo visível para todos os participantes.
-   
-   <img src="https://github.com/user-attachments/assets/60e4837a-0876-4df2-8eac-32cec6b1c9f0" width="600">
-   <br/>
-   <br/>
-   
-   **Obs: Diferente do `Chat IA`, a Deborah não mantém memória das perguntas anteriores e as respotas são curtas e simples**.
-    
- </details>
+## 🚀 How to use?
 
- <details>
-   <summary><strong>Config</strong></summary>
-   
-   **Obs: Comando restrito a administradore**
+### 🔹 Commands and Features:
+
+<details>
+  <summary><strong>📌 Command: /ask</strong></summary>
   
-   Use o comando `/config` para configurar a Deborah para o uso adequado da sua preferencência.
-   <img src="https://github.com/user-attachments/assets/c1d79df6-1c8f-4251-ae97-0cf41902c53f" width="600">
-   <br/>
-   <br/>
-   O comando permite configurar quais canais serão permitidos o uso do comandos da Deborah e quais cargos podem usar-los<br/>
-   Também permite configurar aonde os `Chat IAs` serão criados
-   
- </details>
+  The `/ask` command is ideal for simple and direct questions. When used, Deborah will provide an objective response based on the Bible.
+  
+  ![Ask Command](https://github.com/user-attachments/assets/b48f2fa4-2c07-43b2-a85b-cced708b5fe5)
+  
+  The response will be sent directly in the chat where the command was used, making it visible to all participants.
+  
+  ![Response Example](https://github.com/user-attachments/assets/60e4837a-0876-4df2-8eac-32cec6b1c9f0)
+  
+  🔹 **Note:** Unlike `Chat IA`, Deborah does not retain memory of previous questions. The responses are short and objective.
+</details>
 
- <details>
-   <summary><strong>Chat AIs</strong></summary>
+<details>
+  <summary><strong>⚙️ Command: /config</strong></summary>
+  
+  🔹 **Note:** Only administrators can use this command.
+  
+  The `/config` command allows you to configure Deborah according to the server’s preferences.
+  
+  ![Config Command](https://github.com/user-attachments/assets/c1d79df6-1c8f-4251-ae97-0cf41902c53f)
+  
+  It enables you to:
+  - Define which channels allow the use of Deborah's commands.
+  - Configure which roles can use the commands.
+  - Determine where `Chat IAs` will be created.
+</details>
 
-   **Obs: Para saber como criar os `Chat IAs`, use o comando `/config` e escolha a categória `Criar painel de Chat `**
-   
-   <br/>
-   
-   Ao criar um `Chat IA`, um canal de thread será criado e a Deborah guiará você até lá.
-   
-   <img src="https://github.com/user-attachments/assets/8efd8f77-b257-491a-9dd2-41b484f1aadd" width=800>
-   <br/>
-   <br/>
-   
-   Dentro da thread, você poderá enviar perguntas e receber respostas diretamente.
-   
-   <img src="https://github.com/user-attachments/assets/b57112d2-86fa-4b0e-aa71-1e38a87bb22e" width="500">
-   <br/>
-   <br/>
-   
-   A vantagem do `Chat IA` é que a Deborah terá memória das suas perguntas anteriores, o que torna a conversa mais fluida.
-   
-   <img src="https://github.com/user-attachments/assets/824b3e16-17b1-4e82-bb12-0a9df9b32360" width="500">
-   <br/>
-   <br/>
-   
-   Os `Chat IAs` são privados, então somente o usuário que criou o chat, admins e **qualquer pessoa que for convidada ao chat** (para convidar alguém ao chat, mencione a pessoa dentro do chat)
- 
- </details>
-
+<details>
+  <summary><strong>💬 Chat IAs</strong></summary>
+  
+  🔹 **Note:** To create a `Chat IA`, use the `/config` command and select the `Create Chat Panel` option.
+  
+  When a `Chat IA` is created, a thread will be opened, and Deborah will guide you there.
+  
+  ![Chat IA](https://github.com/user-attachments/assets/8efd8f77-b257-491a-9dd2-41b484f1aadd)
+  
+  Inside the thread, you can ask questions and receive responses directly.
+  
+  ![Chat IA Example](https://github.com/user-attachments/assets/b57112d2-86fa-4b0e-aa71-1e38a87bb22e)
+  
+  The main advantage of `Chat IA` is that Deborah retains memory of previous questions, making the conversation more fluid.
+  
+  ![Chat Memory](https://github.com/user-attachments/assets/824b3e16-17b1-4e82-bb12-0a9df9b32360)
+  
+  🔹 `Chat IAs` are private. Only the user who created the chat, administrators, and invited participants can access it.
+</details>
